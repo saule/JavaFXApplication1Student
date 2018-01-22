@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#searchStudent" onMouseClicked="#fetchStudentInfoWhenTableClicked" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminController">
+   <children>
+      <TabPane layoutX="8.0" layoutY="13.0" prefHeight="687.0" prefWidth="994.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="618.0">
+                     <children>
+                        <HBox layoutX="487.0" layoutY="18.0" prefHeight="567.0" prefWidth="462.0">
+                           <children>
+                              <TableView fx:id="studentDataTableView" onKeyReleased="#fetchStudentInfoWhenKeyPressed" onMouseClicked="#fetchStudentInfoWhenTableClicked" prefHeight="567.0" prefWidth="452.0">
+                                <columns>
+                                  <TableColumn fx:id="idCol" prefWidth="43.0" text="ID" />
+                                  <TableColumn fx:id="fnameCol" prefWidth="49.0" text="fname" />
+                                    <TableColumn fx:id="lnameCol" minWidth="4.3333740234375" prefWidth="51.0" text="lname" />
+                                    <TableColumn fx:id="emailCol" minWidth="7.0" prefWidth="69.0" text="email" />
+                                    <TableColumn fx:id="dobCol" minWidth="0.0" prefWidth="78.0" text="dob" />
+                                    <TableColumn fx:id="hobbiesCol" minWidth="7.0" prefWidth="72.0" text="hobbies" />
+                                    <TableColumn fx:id="genderCol" minWidth="7.0" prefWidth="86.0" text="gender" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="-1.0" prefHeight="657.0" prefWidth="298.0">
+                           <children>
+                              <Label text="Student information" />
+                              <TextField fx:id="id" promptText="id" />
+                              <TextField fx:id="fname" layoutX="10.0" layoutY="27.0" promptText="first name" />
+                              <TextField fx:id="lname" layoutX="10.0" layoutY="52.0" promptText="last name" />
+                              <TextField fx:id="email" layoutX="10.0" layoutY="77.0" promptText="email" />
+                              <DatePicker fx:id="dob" prefHeight="32.0" prefWidth="450.0" promptText="date of birth" />
+                              <Button mnemonicParsing="false" onAction="#addStudent" text="add Entry" />
+                              <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onAction="#clearForm" text="clear form" />
+                              <Button layoutX="10.0" layoutY="184.0" mnemonicParsing="false" onAction="#loadStudentData" text="refresh data" />
+                              <Button mnemonicParsing="false" onAction="#deleteStudent" text="delete" />
+                              <Button mnemonicParsing="false" onAction="#updateStudent" text="update" />
+                              <CheckBox fx:id="playing" mnemonicParsing="false" onAction="#playingChecked" text="playing" />
+                              <CheckBox fx:id="singing" layoutX="10.0" layoutY="284.0" mnemonicParsing="false" onAction="#singingChecked" text="singing" />
+                              <CheckBox fx:id="dancing" layoutX="10.0" layoutY="301.0" mnemonicParsing="false" onAction="#dancingChecked" text="dancing" />
+                              <RadioButton fx:id="male" mnemonicParsing="false" onAction="#maleSelected" text="male" />
+                              <RadioButton fx:id="female" layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onAction="#femaleSelected" text="female" />
+                              <TextField fx:id="searchField" onInputMethodTextChanged="#searchStudent" onKeyPressed="#searchStudent" onKeyReleased="#searchStudent" onKeyTyped="#searchStudent" promptText="search by ID, last name or first name" />
+                              <Button fx:id="browseImage" mnemonicParsing="false" onAction="#broseImage" text="Choose IMage" />
+                              <TextArea fx:id="filePathTextArea" prefHeight="26.0" prefWidth="298.0" />
+                              <ImageView fx:id="studentImage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button mnemonicParsing="false" onAction="#exportToExcel" text="exportToExcel" />
+                              <Button layoutX="10.0" layoutY="606.0" mnemonicParsing="false" onAction="#importExcelDb" text="importExcelDb" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="307.0" layoutY="344.0" prefHeight="308.0" prefWidth="168.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#showIReport" text="show report" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
